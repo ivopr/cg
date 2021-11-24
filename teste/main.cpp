@@ -1,9 +1,12 @@
 #include <GL/glut.h>
-
+#include <cstdio>
 /**
 	Exec.: gcc -o test.out main.cpp -lGL -lGLU -lglut && ./test.out
 */
 
+int timebase = 0;
+int currenttime = 0;
+int frame = 0;
 GLfloat xRotated, yRotated, zRotated;
 GLdouble size = 1;
 
@@ -17,20 +20,34 @@ void display(void) {
 	// Note this when you decrease z like -8.0 the drawing will looks far , or smaller.
 	glTranslatef(0.0, 0.0, -4.5);
 	// Red color used to draw.
-	glColor3f(0.8, 0.2, 0.1); 
+	glColor3f(1, 1, 1); 
 	// changing in transformation matrix.
 	// rotation about X axis
-	glRotatef(xRotated, 1.0, 0.0, 0.0);
+	glRotatef(xRotated, 0.0, 0.0, 0.0);
 	// rotation about Y axis
 	glRotatef(yRotated, 0.0, 1.0, 0.0);
 	// rotation about Z axis
-	glRotatef(zRotated, 0.0, 0.0, 1.0);
+	glRotatef(zRotated, 0.0, 0.0, 0.0);
 	// scaling transfomation 
 	glScalef(1.0, 1.0, 1.0);
 	// built-in (glut library) function , draw you a Teapot.
 	glutSolidTeapot(size);
 	// Flush buffers to screen 
 	glFlush();
+
+	frame++;
+
+	// get the current time
+	currenttime = glutGet(GLUT_ELAPSED_TIME);
+
+	// check if a second has passed
+	if (currenttime - timebase > 1000) {
+		double calc = frame * 1000.0 / (currenttime - timebase);
+		printf("RubixGL v2.0 By Blood Angel FPS: %4.2f\n", calc);
+		timebase = currenttime;
+		frame = 0;
+	}
+
 	// sawp buffers called because we are using double buffering 
 	glutSwapBuffers();
 }
@@ -40,16 +57,15 @@ void reshapeFunc(int x, int y) {
 	//Set a new projection matrix
 	glMatrixMode(GL_PROJECTION);  
 	glLoadIdentity();
-	//Angle of view:40 degrees
-	//Near clipping plane distance: 0.5
-	//Far clipping plane distance: 20.0
-	gluPerspective(40.0, (GLdouble) x / (GLdouble) y, 0.5, 20.0);
-
-	glViewport(0, 0, x, y);  //Use the whole window for rendering
+	// Angle of view: 40 degrees
+	// Near clipping plane distance: 0.5
+	// Far clipping plane distance: 20.0
+	gluPerspective(50.0, (GLdouble) x / (GLdouble) y, 0.5, 20.0);
+	glViewport(0, 0, x, y);  // Use the whole window for rendering
 }
 
 void idleFunc(void) {
-	yRotated += 0.01;
+	yRotated += 0.5;
 	display();
 }
 
@@ -66,10 +82,8 @@ int main(int argc, char **argv) {
 	);
 	// create the window 
 	glutCreateWindow("Teapot Rotating Animation");
-	glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	xRotated = yRotated = zRotated = 30.0;
-	xRotated = 33;
-	yRotated = 40;
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	//Assign  the function used in events
 	glutDisplayFunc(display);
