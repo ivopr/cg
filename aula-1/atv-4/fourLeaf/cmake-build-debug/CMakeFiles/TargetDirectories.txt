@@ -1,0 +1,3 @@
+/home/ivo/unir/cg/aula-1/atv-4/fourLeaf/cmake-build-debug/CMakeFiles/fourleaf.dir
+/home/ivo/unir/cg/aula-1/atv-4/fourLeaf/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ivo/unir/cg/aula-1/atv-4/fourLeaf/cmake-build-debug/CMakeFiles/rebuild_cache.dir

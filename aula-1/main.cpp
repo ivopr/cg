@@ -10,43 +10,28 @@ int currenttime = 0;
 int frame = 0;
 int id;
 
-GLfloat xRotated, yRotated, zRotated;
 GLdouble size = 1;
 
 void display(void) {
-	glMatrixMode(GL_MODELVIEW);
+	glMatrixMode(GL_PROJECTION);
 
 	// clear the drawing buffer.
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+
 	// clear the identity matrix.
 	glLoadIdentity();
 
-	// traslate the draw by z = -4.0
-	// Note this when you decrease z like -8.0 the drawing will looks far , or smaller.
-	glTranslatef(0.0, 0.0, -4.5);
+	glBegin(GL_POLYGON);
+		glColor3f(1.0, 1.0, 0.0);
+		glVertex3f(0.3, 0.3, 0.0);
+		glVertex3f(0.7, 0.3, 0.0);
 
-	// Red color used to draw.
-	glColor3f(1, 1, 1); 
-
-	// changing in transformation matrix.
-	// rotation about X axis
-	glRotatef(xRotated, 0.0, 0.0, 0.0);
-
-	// rotation about Y axis
-	glRotatef(yRotated, 0.0, 1.0, 0.0);
-
-	// rotation about Z axis
-	glRotatef(zRotated, 0.0, 0.0, 0.0);
-
-	// scaling transfomation 
-	glScalef(1.0, 1.0, 1.0);
-
-	// built-in (glut library) function , draw you a Teapot.
-	glutSolidTeapot(size);
-
-	// Flush buffers to screen 
-	glFlush();
+		glColor3f(1.0, 0.0, 0.0);
+		glVertex3f(0.7, 0.7, 0.0);
+		glVertex3f(0.3, 0.7, 0.0);
+	glEnd();
 
 	frame++;
 
@@ -56,19 +41,22 @@ void display(void) {
 	// check if a second has passed
 	if (currenttime - timebase > 1000) {
 		double calc = frame * 1000.0 / (currenttime - timebase);
-		printf("FPS: %4.2f\n", calc);
+		printf("FPS: %.2f\n", calc);
 		timebase = currenttime;
 		frame = 0;
 	}
 
+	// Flush buffers to screen 
+	glFlush();
+
 	// sawp buffers called because we are using double buffering 
-	glutSwapBuffers();
+	// glutSwapBuffers();
 }
 
 void reshapeFunc(int x, int y) {
-	if (y == 0 || x == 0) return;  //Nothing is visible then, so return
+	if (y == 0 || x == 0) return;  // Nothing is visible then, so return
 
-	//Set a new projection matrix
+	// Set a new projection matrix
 	glMatrixMode(GL_PROJECTION);
 
 	glLoadIdentity();
@@ -82,7 +70,6 @@ void reshapeFunc(int x, int y) {
 }
 
 void idleFunc(void) {
-	yRotated += 0.05;
 	display();
 }
 
@@ -111,11 +98,9 @@ int main(int argc, char **argv) {
 	// create the window 
 	id = glutCreateWindow("GLUT Teapot");
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-	xRotated = yRotated = zRotated = 30.0;
-
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClearColor(1, 1, 1, 1);
 
 	// Assign the functions used in events
 	glutDisplayFunc(display);

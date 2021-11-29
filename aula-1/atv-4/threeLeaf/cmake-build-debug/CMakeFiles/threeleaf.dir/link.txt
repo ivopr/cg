@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/threeleaf.dir/main.cpp.o -o threeleaf  -lglut -lGL -lGLU -lGLEW -lglfw 

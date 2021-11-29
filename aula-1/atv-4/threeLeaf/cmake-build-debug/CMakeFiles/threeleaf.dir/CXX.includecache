@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ivo/unir/cg/aula-1/atv-4/threeLeaf/main.cpp
+iostream
+-
+cmath
+-
+GL/glut.h
+-
+
