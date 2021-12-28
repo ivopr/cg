@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ivo/unir/cg/aula-1/atv-4/threeLeaf/main.cpp" "/home/ivo/unir/cg/aula-1/atv-4/threeLeaf/cmake-build-debug/CMakeFiles/threeleaf.dir/main.cpp.o"
+  "C:/Users/ivopr/Desktop/git/unir/cg/aula-1/atv-4/threeLeaf/main.cpp" "C:/Users/ivopr/Desktop/git/unir/cg/aula-1/atv-4/threeLeaf/cmake-build-debug/CMakeFiles/threeleaf.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

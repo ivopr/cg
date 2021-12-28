@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/limacon.dir/main.cpp.o -o limacon  -lglut -lGL -lGLU -lGLEW -lglfw 

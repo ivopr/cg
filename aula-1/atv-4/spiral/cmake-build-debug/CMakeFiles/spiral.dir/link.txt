@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/spiral.dir/main.cpp.o -o spiral  -lglut -lGL -lGLU -lGLEW -lglfw 

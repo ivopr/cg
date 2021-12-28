@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/atv_4.dir/main.cpp.o -o atv_4  -lglut -lGL -lGLU -lGLEW -lglfw 

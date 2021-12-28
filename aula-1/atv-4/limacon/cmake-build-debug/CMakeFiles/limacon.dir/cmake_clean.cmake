@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/limacon.dir/main.cpp.o"
-  "limacon"
+  "CMakeFiles/limacon.dir/main.cpp.obj"
+  "liblimacon.dll.a"
+  "limacon.exe"
+  "limacon.exe.manifest"
   "limacon.pdb"
 )
 

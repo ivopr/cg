@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(limacon main.cpp)
 
-target_link_libraries(limacon -lglut -lGL -lGLU -lGLEW -lglfw)
+target_link_libraries(limacon opengl32 glu32 freeglut)

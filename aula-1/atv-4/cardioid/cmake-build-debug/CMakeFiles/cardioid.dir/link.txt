@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/cardioid.dir/main.cpp.o -o cardioid  -lglut -lGL -lGLU -lGLEW -lglfw 

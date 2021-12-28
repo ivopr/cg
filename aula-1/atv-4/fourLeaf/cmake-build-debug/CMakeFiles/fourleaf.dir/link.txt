@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/fourleaf.dir/main.cpp.o -o fourleaf  -lglut -lGL -lGLU -lGLEW -lglfw 

@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(spiral main.cpp)
 
-target_link_libraries(spiral -lglut -lGL -lGLU -lGLEW -lglfw)
+target_link_libraries(spiral opengl32 glu32 freeglut)

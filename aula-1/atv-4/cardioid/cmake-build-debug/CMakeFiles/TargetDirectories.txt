@@ -1,3 +1,0 @@
-/home/ivo/unir/cg/aula-1/atv-4/cardioid/cmake-build-debug/CMakeFiles/cardioid.dir
-/home/ivo/unir/cg/aula-1/atv-4/cardioid/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ivo/unir/cg/aula-1/atv-4/cardioid/cmake-build-debug/CMakeFiles/rebuild_cache.dir
