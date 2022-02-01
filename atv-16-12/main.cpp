@@ -1,4 +1,4 @@
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 #include <cstdio>
 
 int timebase = 0;
@@ -10,9 +10,9 @@ GLfloat xRotated = 0.0, yRotated = 0.0, zRotated = 0.0;
 GLfloat xScale = 0.5f, yScale = 0.5f, zScale = 0.5f;
 GLfloat xTranslate = 0.0f, yTranslate = 0.0f;
 
-GLdouble size = 1;
+const GLdouble size = 1;
 
-void display(void) {
+void display() {
 	glMatrixMode(GL_MODELVIEW);
 
 	// clear the drawing buffer.
@@ -38,7 +38,7 @@ void display(void) {
 	// rotation about Z axis
 	glRotatef(zRotated, 0.0f, 0.0f, 1.0f);
 
-	// scaling transfomation 
+	// scaling transformation
 	glScalef(xScale, yScale, zScale);
 
 	// built-in (glut library) function , draw you a Teapot.
@@ -60,7 +60,7 @@ void display(void) {
 		frame = 0;
 	}
 
-	// sawp buffers called because we are using double buffering 
+	// swap buffers called because we are using double buffering
 	glutSwapBuffers();
 }
 
@@ -80,7 +80,7 @@ void reshapeFunc(int x, int y) {
 	glViewport(0, 0, x, y);  // Use the whole window for rendering
 }
 
-void idleFunc(void) {
+void idleFunc() {
 	yRotated += 0.05;
 	display();
 }

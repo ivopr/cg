@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/atv_16_12.dir/main.cpp.obj"
+  "CMakeFiles/atv_16_12.dir/main.cpp.obj.d"
   "atv_16_12.exe"
   "atv_16_12.exe.manifest"
   "atv_16_12.pdb"
